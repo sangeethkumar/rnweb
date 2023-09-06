@@ -5,7 +5,8 @@ const appDirectory = path.resolve(__dirname);
 const { presets, plugins } = require(`${appDirectory}/babel.config.js`);
 const compileNodeModules = [
   // Add every react-native package that needs compiling
-  // 'react-native-gesture-handler',
+  'react-native-web-webview',
+  'react-native-webview',
 ].map((moduleName) => path.resolve(appDirectory, `node_modules/${moduleName}`));
 
 const babelLoaderConfiguration = {
@@ -55,6 +56,16 @@ const tsLoaderConfiguration = {
   use: "ts-loader",
 };
 
+const webViewConfig = {
+  test: /postMock.html$/,
+  use: {
+    loader: 'file-loader',
+    options: {
+      name: '[name].[ext]'
+    }
+  }
+};
+
 module.exports = {
   entry: {
     app: path.join(__dirname, "index.web.js"),
@@ -68,6 +79,7 @@ module.exports = {
     extensions: [".web.tsx", ".web.ts", ".tsx", ".ts", ".web.js", ".js"],
     alias: {
       "react-native$": "react-native-web",
+      'react-native-webview': 'react-native-web-webview',
     },
   },
   module: {
@@ -76,11 +88,14 @@ module.exports = {
       imageLoaderConfiguration,
       svgLoaderConfiguration,
       tsLoaderConfiguration,
+      webViewConfig
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "index.html"),
+      filename: 'index.html',
+      inject: 'body'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
