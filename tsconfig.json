@@ -10,7 +10,12 @@
     "noEmit": false,
     "strict": true,
     "target": "esnext",
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["src/*"],
+      "ui/*": ["src/Components/ui/*"]
+    }
   },
   "exclude": [
     "node_modules",

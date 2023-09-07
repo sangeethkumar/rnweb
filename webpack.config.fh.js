@@ -9,7 +9,7 @@ const compileNodeModules = [
   'react-native-webview',
 ].map((moduleName) => path.resolve(appDirectory, `node_modules/${moduleName}`));
 const ReactWebConfig = require('react-web-config/lib/ReactWebConfig').ReactWebConfig;
-const envFilePath = path.resolve(__dirname, '.env.MYT');
+const envFilePath = path.resolve(__dirname, '.env.fh');
 
 const babelLoaderConfiguration = {
   test: /\.(js|jsx|ts|tsx)$/, // Updated to include .jsx

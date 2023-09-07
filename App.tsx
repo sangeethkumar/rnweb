@@ -1,7 +1,9 @@
 import React from "react";
 import {SafeAreaView, StatusBar, StyleSheet, Text, View} from "react-native";
-import Input from "./src/Components/ui/Input";
-import {dateDifferenceInDays} from "./src/utils/DateUtils/DateHelpers";
+// import Input from "ui/Input";
+import Input from 'src/Components/Ui/Input';
+import {dateDifferenceInDays} from "src/Utils/DateUtils/DateHelpers";
+import {WebViewSample} from "src/Components/Views/WebViewSample";
 
 const App = () => {
     const dateA = new Date('2023-09-06');
@@ -12,7 +14,7 @@ const App = () => {
             <View style={styles.content}>
                 <Text style={styles.title}>React Native Web App Example</Text>
                 <Input/>
-                {/*<WebViewSample />*/}
+                <WebViewSample />
                 <Text>Current Date is : {dateDifferenceInDays(dateA, dateB)}</Text>
             </View>
         </SafeAreaView>
