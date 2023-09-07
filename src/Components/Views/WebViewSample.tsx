@@ -1,7 +1,9 @@
 import React from 'react';
 import WebView from 'react-native-webview';
+import { isFH } from 'src/utils/AppHelper';
 
 export const WebViewSample = () => {
+    let loadURL =isFH ?' https://foodhub.co.uk/' : 'https://myt-sit.fhcdn.dev/';
     return (
         <WebView
             startInLoadingState={true}
@@ -11,7 +13,7 @@ export const WebViewSample = () => {
             allowUniversalAccessFromFileURLs={true}
             allowFileAccess={true}
             thirdPartyCookiesEnabled={true}
-            source={{uri: 'https://foodhub.co.uk/'}}/>
+            source={{uri: loadURL}}/>
     );
 }
 

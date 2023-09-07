@@ -11,6 +11,7 @@
     "strict": true,
     "target": "esnext",
     "sourceMap": true,
+    "baseUrl": "./",
     "paths": {
       "src/*": ["src/*"],
       "ui/*": ["src/Components/ui/*"]

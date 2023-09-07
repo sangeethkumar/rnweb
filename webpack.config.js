@@ -8,6 +8,8 @@ const compileNodeModules = [
   'react-native-web-webview',
   'react-native-webview',
 ].map((moduleName) => path.resolve(appDirectory, `node_modules/${moduleName}`));
+const ReactWebConfig = require('react-web-config/lib/ReactWebConfig').ReactWebConfig;
+const envFilePath = path.resolve(__dirname, '.env.MYT');
 
 const babelLoaderConfiguration = {
   test: /\.(js|jsx|ts|tsx)$/, // Updated to include .jsx
@@ -80,6 +82,7 @@ module.exports = {
     alias: {
       "react-native$": "react-native-web",
       'react-native-webview': 'react-native-web-webview',
+      'react-native-config': 'react-web-config'
     },
   },
   module: {
@@ -92,6 +95,7 @@ module.exports = {
     ],
   },
   plugins: [
+    ReactWebConfig(envFilePath),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "index.html"),
       filename: 'index.html',
