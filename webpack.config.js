@@ -10,6 +10,8 @@ const compileNodeModules = [
 ].map((moduleName) => path.resolve(appDirectory, `node_modules/${moduleName}`));
 const ReactWebConfig = require('react-web-config/lib/ReactWebConfig').ReactWebConfig;
 const envFilePath = path.resolve(__dirname, '.env.MYT');
+const CompressionPlugin = require("compression-webpack-plugin");
+const zlib = require("zlib");
 
 const babelLoaderConfiguration = {
   test: /\.(js|jsx|ts|tsx)$/, // Updated to include .jsx
@@ -104,6 +106,25 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       __DEV__: JSON.stringify(true),
+    }),
+    new CompressionPlugin({
+      filename: "rnw.bundle.js.gz",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+    new CompressionPlugin({
+      filename: "rnw.bundle.js.br",
+      algorithm: "brotliCompress",
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        params: {
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+        },
+      },
+      threshold: 10240,
+      minRatio: 0.8,
     }),
   ],
 };
