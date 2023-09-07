@@ -69,6 +69,14 @@ const webViewConfig = {
     }
   }
 };
+const ttfLoaderConfiguration = {
+  test: /\.ttf$/,
+  use: [
+    {
+      loader: 'url-loader'
+    }
+  ]
+};
 
 module.exports = {
   entry: {
@@ -93,7 +101,8 @@ module.exports = {
       imageLoaderConfiguration,
       svgLoaderConfiguration,
       tsLoaderConfiguration,
-      webViewConfig
+      webViewConfig,
+      ttfLoaderConfiguration
     ],
   },
   plugins: [
