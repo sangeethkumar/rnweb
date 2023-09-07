@@ -1,9 +1,9 @@
 import React from 'react';
 import WebView from 'react-native-webview';
-import { isFH } from 'src/utils/AppHelper';
+import { isFH } from 'src/Utils/AppHelper';
 
 export const WebViewSample = () => {
-    let loadURL =isFH ?' https://foodhub.co.uk/' : 'https://myt-sit.fhcdn.dev/';
+    let loadURL = isFH ?' https://foodhub.co.uk/' : 'https://myt-sit.fhcdn.dev/';
     return (
         <WebView
             startInLoadingState={true}

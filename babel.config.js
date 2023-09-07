@@ -16,7 +16,7 @@ module.exports = {
         ],
         alias:{
           'src':'./src',
-          'ui': './src/Components/ui'
+          'ui': './src/Components/Ui'
         }
       }
     ]
