@@ -9,7 +9,10 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "web": "webpack serve --mode=development --config webpack.config.js"
+    "mytweb": "ENVFILE=.env.MYT mode=development webpack serve --mode=development --config webpack.config.js",
+    "fhweb": "ENVFILE=.env.FH mode=development webpack serve --mode=development --config webpack.config.fh.js",
+    "mytbuild": "rm -rf dist/ && ENVFILE=.env.MYT webpack --mode=production --config webpack.config.js",
+    "fhbuild": "rm -rf dist/ && ENVFILE=.env.FH webpack --mode=production --config webpack.config.fh.js"
   },
   "rnpm": {
     "assets": [
@@ -23,9 +26,9 @@
     "file-loader": "6.2.0",
     "html-webpack-plugin": "5.5.3",
     "react": "18.0.0",
-    "react-native-config": "1.4.11",
     "react-dom": "18.2.0",
     "react-native": "0.69.0",
+    "react-native-config": "1.4.11",
     "react-native-web": "0.19.8",
     "react-native-web-webview": "1.0.2",
     "react-native-webview": "11.24.0",
