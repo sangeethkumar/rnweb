@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import CommonHeader from "../../MainModule/Views/CommonHeader";
-import analytics from '@react-native-firebase/analytics';
+import FirebaseAnalytics from "../../MainModule/utils/AnalyicsHelper";
 
 interface IFeaturesScreen {
     navigation: any;
@@ -10,12 +10,12 @@ interface IFeaturesScreen {
 const FeaturesScreen: React.FC = ({navigation}: IFeaturesScreen) => {
 
     useEffect(() => {
-        analytics().logEvent('features', {
+        FirebaseAnalytics.logEvent('Features', {
             id: 3745092,
             item: 'mens grey t-shirt',
             description: ['round neck', 'long sleeved'],
             size: 'L',
-        }).then();
+        });
     }, []);
 
     return (

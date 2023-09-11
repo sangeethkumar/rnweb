@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import DashboardHeader from "../Views/DashboardHeader";
+import FirebaseAnalytics from "../utils/AnalyicsHelper";
 
 interface IDashboardScreen {
     navigation: any;
 }
 
 const DashboardScreen: React.FC = ({navigation}: IDashboardScreen) => {
+    useEffect(() => {
+        return () => {
+            FirebaseAnalytics.init();
+        };
+    }, []);
+
     const handleOrdersPress = () => {
         navigation.navigate('Orders');
     };
