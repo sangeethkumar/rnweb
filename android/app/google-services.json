@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "43015637748",
+    "project_id": "rnweb-4c67c",
+    "storage_bucket": "rnweb-4c67c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43015637748:android:eb9de817aedaebaaa12ca1",
+        "android_client_info": {
+          "package_name": "com.sangeeth.reactweb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9O77tUIgU23wFCG7-pDdQpvBN8MgLM_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

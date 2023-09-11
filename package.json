@@ -20,6 +20,7 @@
     ]
   },
   "dependencies": {
+    "@react-native-firebase/app": "^18.4.0",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/stack": "^6.3.17",
     "babel-loader": "9.1.3",
