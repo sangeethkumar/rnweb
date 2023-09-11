@@ -8,14 +8,9 @@
     "lib": ["esnext"],
     "moduleResolution": "node",
     "noEmit": false,
-    "strict": true,
+    "strict": false,
     "target": "esnext",
-    "sourceMap": true,
-    "baseUrl": "./",
-    "paths": {
-      "src/*": ["src/*"],
-      "ui/*": ["src/Components/ui/*"]
-    }
+    "sourceMap": true
   },
   "exclude": [
     "node_modules",

@@ -1,6 +1,6 @@
 import React from 'react';
 import WebView from 'react-native-webview';
-import { isFH } from 'src/utils/AppHelper';
+import {isFH} from "../../utils/AppHelper";
 
 export const WebViewSample = () => {
     let loadURL = isFH ?' https://foodhub.co.uk/' : 'https://myt-sit.fhcdn.dev/';

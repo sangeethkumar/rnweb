@@ -43,13 +43,14 @@ const svgLoaderConfiguration = {
 };
 
 const imageLoaderConfiguration = {
-  test: /\.(gif|jpe?g|png|svg)$/,
+  test: /\.(gif|jpe?g|png)$/,
   use: {
-    loader: "url-loader",
+    loader: 'url-loader',
     options: {
-      name: "[name].[ext]",
-    },
-  },
+      name: '[name].[ext]',
+      esModule: false
+    }
+  }
 };
 
 const tsLoaderConfiguration = {
