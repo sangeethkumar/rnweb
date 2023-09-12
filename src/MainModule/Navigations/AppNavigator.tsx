@@ -58,7 +58,7 @@ const AppNavigator: React.FC = () => {
   return (
     <MyResponsiveContext.Provider value={screenModes}>
       <>
-        <Text style={{ textAlign: "center", fontSize: 25, fontWeight: "bold" }}>
+        <Text style={{ textAlign: "center", fontSize: 20, fontWeight: "bold" }}>
           Type of Dimension :{currentMode}
         </Text>
         <Stack.Navigator
