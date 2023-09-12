@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Dimensions, Alert, Text } from "react-native";
+import { Dimensions } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import OrdersScreen from "../../OrdersModule/Screens/OrdersScreen";
 import DashboardScreen from "../Screens/DashboardScreen";
@@ -57,21 +57,16 @@ const AppNavigator: React.FC = () => {
   }, [currentMode]);
   return (
     <MyResponsiveContext.Provider value={screenModes}>
-      <>
-        <Text style={{ textAlign: "center", fontSize: 20, fontWeight: "bold" }}>
-          Type of Dimension :{currentMode}
-        </Text>
-        <Stack.Navigator
-          initialRouteName="Dashboard"
-          screenOptions={{ headerShown: false }}
-        >
-          <Stack.Screen name="Dashboard" component={DashboardScreen} />
-          <Stack.Screen name="Orders" component={OrdersScreen} />
-          <Stack.Screen name="Features" component={FeaturesScreen} />
-          <Stack.Screen name="Promotion" component={PromotionScreen} />
-          <Stack.Screen name="Settings" component={SettingsScreen} />
-        </Stack.Navigator>
-      </>
+      <Stack.Navigator
+        initialRouteName="Dashboard"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="Dashboard" component={DashboardScreen} />
+        <Stack.Screen name="Orders" component={OrdersScreen} />
+        <Stack.Screen name="Features" component={FeaturesScreen} />
+        <Stack.Screen name="Promotion" component={PromotionScreen} />
+        <Stack.Screen name="Settings" component={SettingsScreen} />
+      </Stack.Navigator>
     </MyResponsiveContext.Provider>
   );
 };
