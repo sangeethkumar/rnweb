@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import CommonHeader from "@rn-web-app/main/Views/CommonHeader";
-import FirebaseAnalytics from "@rn-web-app/main/utils/AnalyicsHelper";
+// import FirebaseAnalytics from "@rn-web-app/main/utils/AnalyicsHelper";
 
 interface IOrderScreen {
     navigation: any;
@@ -9,14 +9,14 @@ interface IOrderScreen {
 
 const OrderScreen: React.FC = ({navigation}: IOrderScreen) => {
 
-    useEffect(() => {
-        FirebaseAnalytics.logEvent('Orders', {
-            id: 3745092,
-            item: 'mens grey t-shirt',
-            description: ['round neck', 'long sleeved'],
-            size: 'L',
-        });
-    }, []);
+    // useEffect(() => {
+    //     FirebaseAnalytics.logEvent('Orders', {
+    //         id: 3745092,
+    //         item: 'mens grey t-shirt',
+    //         description: ['round neck', 'long sleeved'],
+    //         size: 'L',
+    //     });
+    // }, []);
 
     return (
         <View style={styles.container}>
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     },
     textStyle: {
         fontSize: 22,
+        color: '#000'
     },
 });
 

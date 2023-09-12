@@ -10,7 +10,7 @@ const CommonHeader: React.FC<CommonHeaderProps> = ({title, navigation}) => {
     const handleGoBack = () => {
         navigation.goBack();
     };
-
+    console.log('Obtained title', title);
     return (
         <View style={styles.header}>
             <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         marginLeft: 10,
-        textAlign: 'center'
+        textAlign: 'center',
+        color: '#000'
     },
 });
 
