@@ -10,6 +10,12 @@ __generated__
 ### ReactNative.Xcode Stack ###
 ## User settings
 xcuserdata/
+pods/
+Pods/
+node_modules/*
+!/.node_modules
+*/node_modules/
+*/node_modules/*
 
 ## Xcode 8 and earlier
 *.xcscmblueprint
@@ -19,6 +25,7 @@ xcuserdata/
 .gradle
 **/build/
 !src/**/build/
+!/.gitignore
 
 # Ignore Gradle GUI config
 gradle-app.setting

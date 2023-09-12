@@ -1,7 +1,7 @@
 import React from "react";
 import {SafeAreaView, StatusBar, StyleSheet} from "react-native";
 import {NavigationContainer} from "@react-navigation/native";
-import AppNavigator from "../../packages/MainModule/Navigations/AppNavigator";
+import AppNavigator from "@rn-web-app/main/Navigations/AppNavigator";
 
 const App = () => {
     return (

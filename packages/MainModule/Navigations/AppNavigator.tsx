@@ -1,10 +1,11 @@
 import React from 'react';
 import {createStackNavigator} from "@react-navigation/stack";
-import OrdersScreen from "../../OrdersModule/Screens/OrdersScreen";
-import DashboardScreen from "../Screens/DashboardScreen";
-import FeaturesScreen from "../../FeaturesModule/Screens/FeaturesScreen";
-import PromotionScreen from "../../PromotionModule/Screens/PromotionScreen";
-import SettingsScreen from "../../SettingsModule/Screens/SettingsScreen";
+import OrdersScreen from "@rn-web-app/orders/Screens/OrdersScreen";
+import DashboardScreen from "@rn-web-app/main/Screens/DashboardScreen";
+import FeaturesScreen from "@rn-web-app/features/Screens/FeaturesScreen";
+import PromotionScreen from "@rn-web-app/promotions/Screens/PromotionScreen";
+import SettingsScreen from "@rn-web-app/settings/Screens/SettingsScreen";
+
 
 const Stack = createStackNavigator();
 
