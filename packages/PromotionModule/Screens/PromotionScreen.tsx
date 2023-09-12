@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import CommonHeader from "../../MainModule/Views/CommonHeader";
+import CommonHeader from "@rn-web-app/main/Views/CommonHeader";
 
 interface IPromotionScreen {
     navigation: any;

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {},
   "workspaces": {
-    "packages": ["project/*", "package/*"],
+    "packages": ["project/*", "packages/*"],
     "nohoist": [
       "**/react",
       "**/react-dom",

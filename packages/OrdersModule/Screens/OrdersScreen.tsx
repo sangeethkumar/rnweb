@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import CommonHeader from "../../MainModule/Views/CommonHeader";
-import FirebaseAnalytics from "../../MainModule/utils/AnalyicsHelper";
+import CommonHeader from "@rn-web-app/main/Views/CommonHeader";
+import FirebaseAnalytics from "@rn-web-app/main/utils/AnalyicsHelper";
 
 interface IOrderScreen {
     navigation: any;
