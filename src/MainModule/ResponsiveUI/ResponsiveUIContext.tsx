@@ -1,15 +1,12 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import ResponsiveStyle from "./ResponsiveStyle";
+import { DIMENSION_MODES } from "./ResponsiveConstants";
 
-export const INITIAL_MODES = {
-    isWebMode: false,
-    isTabletLandscapeMode: false,
-    isTabletPortraitMode: false,
-    isMobileMode: false,
-};
-export const MyResponsiveContext = React.createContext(INITIAL_MODES);
+export const MyResponsiveContext = React.createContext(
+  DIMENSION_MODES.IS_LANDSCAPE_MODE
+);
 
 export default function useResponsiveStyle(style) {
-    const mode = useContext(MyResponsiveContext);
-    return ResponsiveStyle(style, mode);
+  const currentViewMode = useContext(MyResponsiveContext);
+  return ResponsiveStyle(style, currentViewMode);
 }
