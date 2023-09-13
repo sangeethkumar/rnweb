@@ -1,6 +1,6 @@
 import ResponsiveStyle from "../ResponsiveUI/ResponsiveStyle";
 // @ts-ignore
-export const dashboardStyles = new ResponsiveStyle({
+export const dashboardStyles = {
   defaultStyle: {
     container: {
       flex: 1,
@@ -50,4 +50,4 @@ export const dashboardStyles = new ResponsiveStyle({
       alignItems: "center",
     },
   },
-});
+};
