@@ -1,5 +1,5 @@
-import {StyleSheet} from "react-native";
-import {isWeb} from "../utils/AppHelper";
+import { StyleSheet } from "react-native";
+import { isWeb } from "../utils/AppHelper";
 
 /**
  *
@@ -37,44 +37,44 @@ import {isWeb} from "../utils/AppHelper";
  */
 
 function ResponsiveStyle({
-                             defaultStyle,
-                             tabletPortraitStyle,
-                             tabletLandscapeStyle,
-                             webStyle,
-                             webLargeScreenStyle,
-                             webTabletLandscapeStyle,
-                             webTabletPortraitStyle,
-                             webSmallScreenStyle,
-                         }) {
-    const responsiveStyle = (viewMode) => {
-        let styles;
+  defaultStyle,
+  tabletPortraitStyle,
+  tabletLandscapeStyle,
+  webStyle,
+  webLargeScreenStyle,
+  webTabletLandscapeStyle,
+  webTabletPortraitStyle,
+  webSmallScreenStyle,
+}) {
+  const responsiveStyle = (viewMode) => {
+    let styles;
 
-        if (isWeb) {
-            styles = {
-                ...defaultStyle,
-                ...webStyle,
-                ...(viewMode?.isLargeScreenMode && webLargeScreenStyle),
-                ...(viewMode?.isTabletLandscapeMode && tabletLandscapeStyle),
-                ...(viewMode?.isTabletPortraitMode && webTabletPortraitStyle),
-                ...(viewMode?.isSmallScreenMode && webSmallScreenStyle),
-            };
-        } else {
-            styles = {
-                ...defaultStyle,
-                ...(viewMode?.isLargeScreenMode && tabletLandscapeStyle),
-                ...(viewMode?.isTabletPortraitMode && tabletPortraitStyle),
-                ...(viewMode?.isTabletLandscapeMode && tabletLandscapeStyle),
-            };
-        }
+    if (isWeb) {
+      styles = {
+        ...defaultStyle,
+        ...webStyle,
+        ...(viewMode?.isLargeScreenMode && webLargeScreenStyle),
+        ...(viewMode?.isTabletLandscapeMode && tabletLandscapeStyle),
+        ...(viewMode?.isTabletPortraitMode && webTabletPortraitStyle),
+        ...(viewMode?.isSmallScreenMode && webSmallScreenStyle),
+      };
+    } else {
+      styles = {
+        ...defaultStyle,
+        ...(viewMode?.isLargeScreenMode && tabletLandscapeStyle),
+        ...(viewMode?.isTabletPortraitMode && tabletPortraitStyle),
+        ...(viewMode?.isTabletLandscapeMode && tabletLandscapeStyle),
+      };
+    }
 
-        return StyleSheet.create(styles);
-    };
+    return StyleSheet.create(styles);
+  };
 
-    responsiveStyle.setViewMode = (viewMode) => {
-        return responsiveStyle(viewMode);
-    };
+  responsiveStyle.setViewMode = (viewMode) => {
+    return responsiveStyle(viewMode);
+  };
 
-    return responsiveStyle;
+  return responsiveStyle;
 }
 
 export default ResponsiveStyle;

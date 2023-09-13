@@ -1,22 +1,15 @@
 import React, { useContext, useEffect } from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ScrollView,
-} from "react-native";
+import { Image, Text, TouchableOpacity, View, ScrollView } from "react-native";
 import DashboardHeader from "../Views/DashboardHeader";
 import FirebaseAnalytics from "../utils/AnalyicsHelper";
-import T2SResponsiveStyle from "../ResponsiveUI/T2SResponsiveStyle";
-import useResponsiveStyle from "../ResponsiveUI/UseResponsiveStyle";
+import useResponsiveStyle from "../ResponsiveUI/ResponsiveUIContext";
 import FilterBar from "../../FeaturesModule/Views/FilterBar";
-import { isLandscapeMode } from "../ResponsiveUI/helpers";
-import { MyResponsiveContext } from "../ResponsiveUI/constants";
+import { isLandscapeMode } from "../ResponsiveUI/ResponsiveHelpers";
+import { MyResponsiveContext } from "../ResponsiveUI/ResponsiveUIContext";
+import ResponsiveStyle from "../ResponsiveUI/ResponsiveStyle";
 
 interface IDashboardScreen {
-    navigation: any;
+  navigation: any;
 }
 
 const DashboardScreen: React.FC = ({ navigation }: IDashboardScreen) => {
@@ -28,21 +21,21 @@ const DashboardScreen: React.FC = ({ navigation }: IDashboardScreen) => {
     };
   }, []);
 
-    const handleOrdersPress = () => {
-        navigation.navigate("Orders");
-    };
+  const handleOrdersPress = () => {
+    navigation.navigate("Orders");
+  };
 
-    const handleFeaturesPress = () => {
-        navigation.navigate("Features");
-    };
+  const handleFeaturesPress = () => {
+    navigation.navigate("Features");
+  };
 
-    const handlePromotionPress = () => {
-        navigation.navigate("Promotion");
-    };
+  const handlePromotionPress = () => {
+    navigation.navigate("Promotion");
+  };
 
-    const handleSettingsPress = () => {
-        navigation.navigate("Settings");
-    };
+  const handleSettingsPress = () => {
+    navigation.navigate("Settings");
+  };
 
   return (
     <ScrollView style={styles.container}>
@@ -103,7 +96,7 @@ const DashboardScreen: React.FC = ({ navigation }: IDashboardScreen) => {
 };
 
 // @ts-ignore
-const dashboardStyles = new T2SResponsiveStyle({
+const dashboardStyles = new ResponsiveStyle({
   defaultStyle: {
     container: {
       flex: 1,
