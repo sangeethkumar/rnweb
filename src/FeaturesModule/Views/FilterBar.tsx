@@ -28,7 +28,10 @@ const FilterBar = () => {
       <ScrollView>
         <Text style={styles.filterHeading}>Filters</Text>
         <TouchableOpacity
-          style={styles.filterOption}
+          style={[
+            styles.filterOption,
+            filters.distance && styles.selectedStyle,
+          ]}
           onPress={() =>
             setFilters({ ...filters, distance: !filters.distance })
           }
@@ -36,25 +39,25 @@ const FilterBar = () => {
           <Text>Distance</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.filterOption}
+          style={[styles.filterOption, filters.cuisine && styles.selectedStyle]}
           onPress={() => setFilters({ ...filters, cuisine: !filters.cuisine })}
         >
           <Text>Cuisine</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.filterOption}
+          style={[styles.filterOption, filters.rating && styles.selectedStyle]}
           onPress={() => setFilters({ ...filters, rating: !filters.rating })}
         >
           <Text>Rating</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.filterOption}
+          style={[styles.filterOption, filters.sortAZ && styles.selectedStyle]}
           onPress={() => setFilters({ ...filters, sortAZ: !filters.sortAZ })}
         >
           <Text>A-Z</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.filterOption}
+          style={[styles.filterOption, filters.sortZA && styles.selectedStyle]}
           onPress={() => setFilters({ ...filters, sortZA: !filters.sortZA })}
         >
           <Text>Z-A</Text>
@@ -91,7 +94,10 @@ const styles = StyleSheet.create({
   filterOption: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
     marginBottom: 10,
+    width: "100%",
+    height: 50,
   },
   filterButton: {
     backgroundColor: "#57B864",
@@ -102,6 +108,10 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontWeight: "bold",
+  },
+  selectedStyle: {
+    borderWidth: 1,
+    borderColor: "red",
   },
 });
 
