@@ -6,7 +6,7 @@ import useResponsiveStyle from "../ResponsiveUI/ResponsiveUIContext";
 import FilterBar from "../../FeaturesModule/Views/FilterBar";
 import { isLandscapeMode } from "../ResponsiveUI/ResponsiveHelpers";
 import { MyResponsiveContext } from "../ResponsiveUI/ResponsiveUIContext";
-import ResponsiveStyle from "../ResponsiveUI/ResponsiveStyle";
+import { dashboardStyles } from "../Styles/dashboardStyles";
 
 interface IDashboardScreen {
   navigation: any;
@@ -42,12 +42,12 @@ const DashboardScreen: React.FC = ({ navigation }: IDashboardScreen) => {
       <DashboardHeader showFilter={!isLandscapeMode(mode)} />
       <View style={styles.centerContainer}>
         {isLandscapeMode(mode) && (
-          <View style={{ flex: 0.25, height: "100%" }}>
+          <View style={styles.filterContainer}>
             <FilterBar />
           </View>
         )}
 
-        <View style={{ flex: 1, marginTop: 100 }}>
+        <View style={styles.secondaryContainer}>
           <View style={styles.moduleContainer}>
             <TouchableOpacity onPress={handleOrdersPress} style={styles.module}>
               <Image
@@ -94,50 +94,5 @@ const DashboardScreen: React.FC = ({ navigation }: IDashboardScreen) => {
     </ScrollView>
   );
 };
-
-// @ts-ignore
-const dashboardStyles = new ResponsiveStyle({
-  defaultStyle: {
-    container: {
-      flex: 1,
-      padding: 10,
-      backgroundColor: "#fff",
-    },
-    centerContainer: {
-      flex: 1,
-
-      flexDirection: "row",
-    },
-    moduleContainer: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      marginBottom: 100,
-    },
-    module: {
-      flex: 1,
-      alignItems: "center",
-    },
-    icon: {
-      width: 150,
-      height: 150,
-      marginBottom: 8,
-    },
-    moduleName: {
-      fontSize: 16,
-    },
-  },
-  webSmallScreenStyle: {
-    moduleContainer: {},
-    centerContainer: {
-      flex: 1,
-      marginTop: 30,
-    },
-    module: {
-      flex: 1,
-      alignItems: "center",
-      marginBottom: 50,
-    },
-  },
-});
 
 export default DashboardScreen;
