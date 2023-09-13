@@ -35,72 +35,71 @@ import { isWeb } from "../utils/AppHelper";
  webStyle.
 
  */
-function ResponsiveStyle({
-  defaultStyle,
-  tabletPortraitStyle,
-  tabletLandscapeStyle,
-  webStyle,
-  webLargeScreenStyle,
-  webTabletLandscapeStyle,
-  webTabletPortraitStyle,
-  webSmallScreenStyle,
-}) {
-  this.setViewMode = (viewMode) => {
-    let styles;
-    if (isWeb) {
-      if (viewMode?.isLargeScreenMode) {
-        styles = {
-          ...defaultStyle,
-          ...webStyle,
-          ...tabletLandscapeStyle,
-          ...webTabletLandscapeStyle,
-          ...webLargeScreenStyle,
-        };
-      } else if (viewMode?.isTabletLandscapeMode) {
-        styles = {
-          ...defaultStyle,
-          ...webStyle,
-          ...tabletLandscapeStyle,
-          ...webTabletLandscapeStyle,
-        };
-      } else if (viewMode?.isTabletPortraitMode) {
-        styles = {
-          ...defaultStyle,
-          ...webStyle,
-          ...tabletPortraitStyle,
-          ...webTabletPortraitStyle,
-        };
-      } else if (viewMode?.isSmallScreenMode) {
-        styles = {
-          ...defaultStyle,
-          ...webStyle,
-          ...webSmallScreenStyle,
-        };
-      } else {
-        styles = {
-          ...defaultStyle,
-          ...webStyle,
-        };
-      }
+function ResponsiveStyle(
+  {
+    defaultStyle,
+    tabletPortraitStyle,
+    tabletLandscapeStyle,
+    webStyle,
+    webLargeScreenStyle,
+    webTabletLandscapeStyle,
+    webTabletPortraitStyle,
+    webSmallScreenStyle,
+  },
+  viewMode
+) {
+  let styles;
+  if (isWeb) {
+    if (viewMode?.isLargeScreenMode) {
+      styles = {
+        ...defaultStyle,
+        ...webStyle,
+        ...tabletLandscapeStyle,
+        ...webTabletLandscapeStyle,
+        ...webLargeScreenStyle,
+      };
+    } else if (viewMode?.isTabletLandscapeMode) {
+      styles = {
+        ...defaultStyle,
+        ...webStyle,
+        ...tabletLandscapeStyle,
+        ...webTabletLandscapeStyle,
+      };
+    } else if (viewMode?.isTabletPortraitMode) {
+      styles = {
+        ...defaultStyle,
+        ...webStyle,
+        ...tabletPortraitStyle,
+        ...webTabletPortraitStyle,
+      };
+    } else if (viewMode?.isSmallScreenMode) {
+      styles = {
+        ...defaultStyle,
+        ...webStyle,
+        ...webSmallScreenStyle,
+      };
     } else {
-      //in large screen tablet device, mode is set as largeScreenMode. Hence, added
-      if (viewMode?.isLargeScreenMode) {
-        styles = {
-          ...defaultStyle,
-          ...tabletLandscapeStyle,
-        };
-      } else if (viewMode?.isTabletPortraitMode) {
-        styles = { ...defaultStyle, tabletPortraitStyle };
-      } else if (viewMode?.isTabletLandscapeMode) {
-        styles = { ...defaultStyle, tabletLandscapeStyle };
-      } else {
-        styles = { ...defaultStyle };
-      }
+      styles = {
+        ...defaultStyle,
+        ...webStyle,
+      };
     }
-    this.style = StyleSheet.create(styles);
-    return this.style;
-  };
+  } else {
+    //in large screen tablet device, mode is set as largeScreenMode. Hence, added
+    if (viewMode?.isLargeScreenMode) {
+      styles = {
+        ...defaultStyle,
+        ...tabletLandscapeStyle,
+      };
+    } else if (viewMode?.isTabletPortraitMode) {
+      styles = { ...defaultStyle, tabletPortraitStyle };
+    } else if (viewMode?.isTabletLandscapeMode) {
+      styles = { ...defaultStyle, tabletLandscapeStyle };
+    } else {
+      styles = { ...defaultStyle };
+    }
+  }
 
-  return this;
+  return StyleSheet.create(styles);
 }
 export default ResponsiveStyle;
