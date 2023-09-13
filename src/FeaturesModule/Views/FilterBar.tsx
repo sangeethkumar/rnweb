@@ -14,10 +14,46 @@ const FilterBar = () => {
     rating: false,
     sortAZ: false,
     sortZA: false,
-    // Add more filter options as needed
   });
 
-  // Function to handle filtering based on selected options
+  const toggleFilter = (filter) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [filter]: !prevFilters[filter],
+    }));
+  };
+
+  const filterOptions = [
+    { label: "Distance", filter: "distance" },
+    { label: "Cuisine", filter: "cuisine" },
+    { label: "Rating", filter: "rating" },
+    { label: "A-Z", filter: "sortAZ" },
+    { label: "Z-A", filter: "sortZA" },
+    // Add more filter options here
+  ];
+
+  const renderFilterOptions = () => {
+    return filterOptions.map((option) => (
+      <TouchableOpacity
+        key={option.filter}
+        style={[
+          styles.filterOption,
+          filters[option.filter] && styles.selectedStyle,
+        ]}
+        onPress={() => toggleFilter(option.filter)}
+      >
+        <Text
+          style={[
+            styles.filterText,
+            filters[option.filter] && styles.selectedText,
+          ]}
+        >
+          {option.label}
+        </Text>
+      </TouchableOpacity>
+    ));
+  };
+
   const handleFilter = () => {
     // Implement your filtering logic here
     // You can use the state variable "filters" to determine the selected options
@@ -27,50 +63,9 @@ const FilterBar = () => {
     <View style={styles.filterBar}>
       <ScrollView>
         <Text style={styles.filterHeading}>Filters</Text>
-        <TouchableOpacity
-          style={[
-            styles.filterOption,
-            filters.distance && styles.selectedStyle,
-          ]}
-          onPress={() =>
-            setFilters({ ...filters, distance: !filters.distance })
-          }
-        >
-          <Text>Distance</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.filterOption, filters.cuisine && styles.selectedStyle]}
-          onPress={() => setFilters({ ...filters, cuisine: !filters.cuisine })}
-        >
-          <Text>Cuisine</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.filterOption, filters.rating && styles.selectedStyle]}
-          onPress={() => setFilters({ ...filters, rating: !filters.rating })}
-        >
-          <Text>Rating</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.filterOption, filters.sortAZ && styles.selectedStyle]}
-          onPress={() => setFilters({ ...filters, sortAZ: !filters.sortAZ })}
-        >
-          <Text>A-Z</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.filterOption, filters.sortZA && styles.selectedStyle]}
-          onPress={() => setFilters({ ...filters, sortZA: !filters.sortZA })}
-        >
-          <Text>Z-A</Text>
-        </TouchableOpacity>
-        {/* Add more filter options here */}
-        {/* Example:
-        <TouchableOpacity style={styles.filterOption} onPress={() => setFilters({ ...filters, anotherOption: !filters.anotherOption })}>
-          <CheckBox value={filters.anotherOption} />
-          <Text>Another Option</Text>
-        </TouchableOpacity>
-        */}
+        {renderFilterOptions()}
         <TouchableOpacity style={styles.filterButton} onPress={handleFilter}>
-          <Text>Apply Filters</Text>
+          <Text style={styles.buttonText}>Apply Filters</Text>
         </TouchableOpacity>
       </ScrollView>
     </View>
@@ -83,8 +78,8 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
     backgroundColor: "white",
     padding: 10,
-    borderRightWidth: 1, // Add a 1-pixel border to the right
-    borderRightColor: "rgba(0, 0, 0, 0.2)", //
+    borderRightWidth: 1,
+    borderRightColor: "rgba(0, 0, 0, 0.2)",
   },
   filterHeading: {
     fontSize: 18,
@@ -98,6 +93,19 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     width: "100%",
     height: 50,
+    borderWidth: 1,
+    borderColor: "transparent",
+    borderRadius: 5,
+  },
+  filterText: {
+    fontSize: 16,
+  },
+  selectedStyle: {
+    borderColor: "#57B864", // Border color for selected items
+    backgroundColor: "#E0E0E0", // Background color for selected items
+  },
+  selectedText: {
+    color: "#57B864", // Text color for selected items
   },
   filterButton: {
     backgroundColor: "#57B864",
@@ -108,10 +116,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontWeight: "bold",
-  },
-  selectedStyle: {
-    borderWidth: 1,
-    borderColor: "red",
   },
 });
 
