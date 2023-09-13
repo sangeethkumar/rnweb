@@ -2,10 +2,10 @@ import React, {useContext} from "react";
 import ResponsiveStyle from "./ResponsiveStyle";
 
 export const INITIAL_MODES = {
-    isLargeScreenMode: false,
+    isWebMode: false,
     isTabletLandscapeMode: false,
     isTabletPortraitMode: false,
-    isSmallScreenMode: false,
+    isMobileMode: false,
 };
 export const MyResponsiveContext = React.createContext(INITIAL_MODES);
 

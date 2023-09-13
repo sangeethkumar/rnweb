@@ -21,7 +21,7 @@ const ResponsiveStyle = ({
             ...webStyle,
         };
 
-        if (viewMode?.isLargeScreenMode) {
+        if (viewMode?.isWebMode) {
             styles = {
                 ...styles,
                 ...webLargeScreenStyle,
@@ -40,14 +40,14 @@ const ResponsiveStyle = ({
                 ...tabletPortraitStyle,
                 ...webTabletPortraitStyle,
             };
-        } else if (viewMode?.isSmallScreenMode) {
+        } else if (viewMode?.isMobileMode) {
             styles = {
                 ...styles,
                 ...webSmallScreenStyle,
             };
         }
     } else {
-        if (viewMode?.isLargeScreenMode) {
+        if (viewMode?.isWebMode) {
             styles = {
                 ...styles,
                 ...tabletLandscapeStyle,

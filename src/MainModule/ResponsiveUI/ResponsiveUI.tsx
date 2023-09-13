@@ -11,16 +11,16 @@ export function useScreenModes() {
     const [currentMode, setCurrentMode] = useState(initialMode);
 
     useEffect(() => {
-        let deviceEventListner = null;
+        let deviceEventListener = null;
         if (isWeb) {
-            deviceEventListner = Dimensions.addEventListener(
+            deviceEventListener = Dimensions.addEventListener(
                 "change",
                 handleOrientationChange
             );
         }
         return () => {
-            if (deviceEventListner && isWeb) {
-                deviceEventListner?.remove();
+            if (deviceEventListener && isWeb) {
+                deviceEventListener?.remove();
             }
         };
     }, []);
@@ -38,12 +38,12 @@ export function useScreenModes() {
     return useMemo(() => {
         let deviceMode = isWeb ? currentMode : getDeviceMode();
         return {
-            isLargeScreenMode: deviceMode === DIMENSION_MODES.IS_LARGE_SCREEN_MODE,
+            isWebMode: deviceMode === DIMENSION_MODES.IS_WEB_MODE,
             isTabletLandscapeMode:
                 deviceMode === DIMENSION_MODES.IS_TABLET_LANDSCAPE_MODE,
             isTabletPortraitMode:
                 deviceMode === DIMENSION_MODES.IS_TABLET_PORTRAIT_MODE,
-            isSmallScreenMode: deviceMode === DIMENSION_MODES.IS_SMALL_SCREEN_MODE,
+            isMobileMode: deviceMode === DIMENSION_MODES.IS_MOBILE_MODE,
         };
     }, [currentMode]);
 }
