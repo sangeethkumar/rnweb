@@ -7,9 +7,10 @@ export const dashboardStyles = new ResponsiveStyle({
       padding: 10,
       backgroundColor: "#fff",
     },
+
     centerContainer: {
       flex: 1,
-      flexDirection: "row",
+      marginTop: 30,
     },
     filterContainer: {
       flex: 0.25,
@@ -17,17 +18,13 @@ export const dashboardStyles = new ResponsiveStyle({
     },
     secondaryContainer: {
       flex: 1,
-      marginTop: 100,
+      marginTop: 50,
     },
 
-    moduleContainer: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      marginBottom: 100,
-    },
     module: {
       flex: 1,
       alignItems: "center",
+      marginBottom: 50,
     },
     icon: {
       width: 150,
@@ -38,16 +35,19 @@ export const dashboardStyles = new ResponsiveStyle({
       fontSize: 16,
     },
   },
-  webSmallScreenStyle: {
-    moduleContainer: {},
+  tabletLandscapeStyle: {
+    moduleContainer: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      marginBottom: 100,
+    },
     centerContainer: {
       flex: 1,
-      marginTop: 30,
+      flexDirection: "row",
     },
     module: {
       flex: 1,
       alignItems: "center",
-      marginBottom: 50,
     },
   },
 });

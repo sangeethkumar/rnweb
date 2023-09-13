@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Alert, StyleSheet } from "react-native";
 import { isWeb } from "../utils/AppHelper";
 
 /**
@@ -35,7 +35,6 @@ import { isWeb } from "../utils/AppHelper";
  webStyle.
 
  */
-
 function ResponsiveStyle({
   defaultStyle,
   tabletPortraitStyle,
@@ -46,35 +45,62 @@ function ResponsiveStyle({
   webTabletPortraitStyle,
   webSmallScreenStyle,
 }) {
-  const responsiveStyle = (viewMode) => {
+  this.setViewMode = (viewMode) => {
     let styles;
-
     if (isWeb) {
-      styles = {
-        ...defaultStyle,
-        ...webStyle,
-        ...(viewMode?.isLargeScreenMode && webLargeScreenStyle),
-        ...(viewMode?.isTabletLandscapeMode && tabletLandscapeStyle),
-        ...(viewMode?.isTabletPortraitMode && webTabletPortraitStyle),
-        ...(viewMode?.isSmallScreenMode && webSmallScreenStyle),
-      };
+      if (viewMode?.isLargeScreenMode) {
+        styles = {
+          ...defaultStyle,
+          ...webStyle,
+          ...tabletLandscapeStyle,
+          ...webTabletLandscapeStyle,
+          ...webLargeScreenStyle,
+        };
+      } else if (viewMode?.isTabletLandscapeMode) {
+        styles = {
+          ...defaultStyle,
+          ...webStyle,
+          ...tabletLandscapeStyle,
+          ...webTabletLandscapeStyle,
+        };
+      } else if (viewMode?.isTabletPortraitMode) {
+        styles = {
+          ...defaultStyle,
+          ...webStyle,
+          ...tabletPortraitStyle,
+          ...webTabletPortraitStyle,
+        };
+      } else if (viewMode?.isSmallScreenMode) {
+        styles = {
+          ...defaultStyle,
+          ...webStyle,
+          ...webSmallScreenStyle,
+        };
+      } else {
+        styles = {
+          ...defaultStyle,
+          ...webStyle,
+        };
+      }
     } else {
-      styles = {
-        ...defaultStyle,
-        ...(viewMode?.isLargeScreenMode && tabletLandscapeStyle),
-        ...(viewMode?.isTabletPortraitMode && tabletPortraitStyle),
-        ...(viewMode?.isTabletLandscapeMode && tabletLandscapeStyle),
-      };
+      //in large screen tablet device, mode is set as largeScreenMode. Hence, added
+      if (viewMode?.isLargeScreenMode) {
+        styles = {
+          ...defaultStyle,
+          ...tabletLandscapeStyle,
+        };
+      } else if (viewMode?.isTabletPortraitMode) {
+        styles = { ...defaultStyle, tabletPortraitStyle };
+      } else if (viewMode?.isTabletLandscapeMode) {
+        styles = { ...defaultStyle, tabletLandscapeStyle };
+      } else {
+        styles = { ...defaultStyle };
+      }
     }
-
-    return StyleSheet.create(styles);
+    this.style = StyleSheet.create(styles);
+    return this.style;
   };
 
-  responsiveStyle.setViewMode = (viewMode) => {
-    return responsiveStyle(viewMode);
-  };
-
-  return responsiveStyle;
+  return this;
 }
-
 export default ResponsiveStyle;
