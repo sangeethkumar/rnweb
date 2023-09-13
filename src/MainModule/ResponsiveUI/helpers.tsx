@@ -5,6 +5,7 @@ import {
   TABLET_SCREEN_WIDTH,
 } from "./constants";
 import { Dimensions } from "react-native";
+import { isWeb } from "../utils/AppHelper";
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
 export const isLandscapeDevice = deviceWidth >= deviceHeight;
 export const getDeviceMode = () => {
@@ -36,5 +37,15 @@ export const getDimensionModeOfScreen = (window) => {
     }
   } else {
     return DIMENSION_MODES.IS_LARGE_SCREEN_MODE;
+  }
+};
+
+export const isLandscapeMode = (context) => {
+  if (!isWeb) {
+    return isLandscapeDevice;
+  } else {
+    const isLargeScreenMode = context?.isLargeScreenMode || false;
+    const isTabletLandscapeMode = context?.isTabletLandscapeMode || false;
+    return isLargeScreenMode || isTabletLandscapeMode;
   }
 };
