@@ -39,13 +39,3 @@ export const getDimensionModeOfScreen = (window) => {
     return DIMENSION_MODES.IS_LARGE_SCREEN_MODE;
   }
 };
-
-export const isLandscapeMode = (context) => {
-  if (!isWeb) {
-    return isLandscapeDevice;
-  } else {
-    const isLargeScreenMode = context?.isLargeScreenMode || false;
-    const isTabletLandscapeMode = context?.isTabletLandscapeMode || false;
-    return isLargeScreenMode || isTabletLandscapeMode;
-  }
-};

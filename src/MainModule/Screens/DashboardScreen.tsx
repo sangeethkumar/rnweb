@@ -16,7 +16,7 @@ import { isLandscapeMode } from "../ResponsiveUI/helpers";
 import { MyResponsiveContext } from "../ResponsiveUI/constants";
 
 interface IDashboardScreen {
-  navigation: any;
+    navigation: any;
 }
 
 const DashboardScreen: React.FC = ({ navigation }: IDashboardScreen) => {
@@ -28,21 +28,21 @@ const DashboardScreen: React.FC = ({ navigation }: IDashboardScreen) => {
     };
   }, []);
 
-  const handleOrdersPress = () => {
-    navigation.navigate("Orders");
-  };
+    const handleOrdersPress = () => {
+        navigation.navigate("Orders");
+    };
 
-  const handleFeaturesPress = () => {
-    navigation.navigate("Features");
-  };
+    const handleFeaturesPress = () => {
+        navigation.navigate("Features");
+    };
 
-  const handlePromotionPress = () => {
-    navigation.navigate("Promotion");
-  };
+    const handlePromotionPress = () => {
+        navigation.navigate("Promotion");
+    };
 
-  const handleSettingsPress = () => {
-    navigation.navigate("Settings");
-  };
+    const handleSettingsPress = () => {
+        navigation.navigate("Settings");
+    };
 
   return (
     <ScrollView style={styles.container}>
