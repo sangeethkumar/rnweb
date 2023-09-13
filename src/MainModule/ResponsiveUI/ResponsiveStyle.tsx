@@ -1,102 +1,67 @@
 import {StyleSheet} from "react-native";
 import {isWeb} from "../utils/AppHelper";
 
-/**
- *
- * @param defaultStyle
- defaultStyle is common for all platforms, if the style is same for mobile app and web app and same for all dimensions of web we can put the style in mobile style.
+const ResponsiveStyle = ({
+                             defaultStyle,
+                             tabletPortraitStyle,
+                             tabletLandscapeStyle,
+                             webStyle,
+                             webLargeScreenStyle,
+                             webTabletLandscapeStyle,
+                             webTabletPortraitStyle,
+                             webSmallScreenStyle,
+                         }, viewMode) => {
+    let styles = {
+        ...defaultStyle,
+    };
 
- * @param tabletPortraitStyle
- tabletPortraitStyle is for portrait mode in tablet view, this will override mobile style and if style is common for mobile app tablet and web app app portrait
- we can put in tabletPortraitStyle.
-
- * @param tabletLandscapeStyle
- tabletLandscapeStyle is for landscape mode, this will override defaultStyle, if we have common style same for mobile app landscape, web app landscape and web app
- largeScreen we can put the style in tabletLandscapeStyle.
-
- * @param webStyle
- webStyle is for if we want style only for web not for mobile app this will basically override defaultStyle, and style is common for all web dimension modes than we
- can place our style in webStyle.
-
- * @param webLargeScreenStyle
- webLargeScreenStyle is for web app when we want specific style only for web largeScreen dimension than we can place it here, this will usually override defaultStyle and
- webStyle.
-
- * @param webTabletLandscapeStyle
- webTabletLandscapeStyle is for web app when we want any specific style only in web landscape mode than we can place it here, this will usually override defaultStyle,
- webStyle and tabletLandscapeStyle.
-
- * @param webTabletPortraitStyle
- webTabletPortraitStyle is for web app when we want any specific style only for web in tablet portrait mode than we can place it here, this will usually override
- defaultStyle, webStyle and tabletPortraitStyle.
-
- * @param webSmallScreenStyle
- webSmallScreenStyle is for web app when we want any specific style only for web in small screen mode than we can place it here, this will usually override defaultStyle,
- webStyle.
-
- */
-function ResponsiveStyle(
-    {
-        defaultStyle,
-        tabletPortraitStyle,
-        tabletLandscapeStyle,
-        webStyle,
-        webLargeScreenStyle,
-        webTabletLandscapeStyle,
-        webTabletPortraitStyle,
-        webSmallScreenStyle,
-    },
-    viewMode
-) {
-    let styles;
     if (isWeb) {
+        styles = {
+            ...styles,
+            ...webStyle,
+        };
+
         if (viewMode?.isLargeScreenMode) {
             styles = {
-                ...defaultStyle,
-                ...webStyle,
+                ...styles,
+                ...webLargeScreenStyle,
                 ...tabletLandscapeStyle,
                 ...webTabletLandscapeStyle,
-                ...webLargeScreenStyle,
             };
         } else if (viewMode?.isTabletLandscapeMode) {
             styles = {
-                ...defaultStyle,
-                ...webStyle,
+                ...styles,
                 ...tabletLandscapeStyle,
                 ...webTabletLandscapeStyle,
             };
         } else if (viewMode?.isTabletPortraitMode) {
             styles = {
-                ...defaultStyle,
-                ...webStyle,
+                ...styles,
                 ...tabletPortraitStyle,
                 ...webTabletPortraitStyle,
             };
         } else if (viewMode?.isSmallScreenMode) {
             styles = {
-                ...defaultStyle,
-                ...webStyle,
+                ...styles,
                 ...webSmallScreenStyle,
-            };
-        } else {
-            styles = {
-                ...defaultStyle,
-                ...webStyle,
             };
         }
     } else {
-        //in large screen tablet device, mode is set as largeScreenMode. Hence, added
         if (viewMode?.isLargeScreenMode) {
             styles = {
-                ...defaultStyle,
+                ...styles,
                 ...tabletLandscapeStyle,
             };
         } else if (viewMode?.isTabletPortraitMode) {
-            styles = {...defaultStyle, tabletPortraitStyle};
+            styles = {
+                ...styles,
+                tabletPortraitStyle,
+            };
         } else if (viewMode?.isTabletLandscapeMode) {
-            styles = {...defaultStyle, tabletLandscapeStyle};
-        } else {
-            styles = {...defaultStyle};
+            styles = {
+                ...styles,
+                tabletLandscapeStyle,
+            };
         }
     }
 
