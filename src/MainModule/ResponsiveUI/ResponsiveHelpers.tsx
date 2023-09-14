@@ -16,7 +16,7 @@ export const isLandscapeDevice = deviceWidth >= deviceHeight;
 export const getDimensionModeOfScreen = (window) => {
   if (!window || !window.width || !window.height) {
     // If window dimensions are not available, assume large screen mode
-    return DIMENSION_MODES.IS_LANDSCAPE_MODE;
+    return DIMENSION_MODES.IS_MOBILE_MODE;
   }
   const { width: screenWidth, height: screenHeight } = window;
   if (screenWidth >= TABLET_SCREEN_WIDTH && screenWidth > screenHeight) {
@@ -34,7 +34,7 @@ export const getDimensionModeOfScreen = (window) => {
   }
 
   // Default to large screen mode if no conditions are met we can change if mobile if we want
-  return DIMENSION_MODES.IS_LANDSCAPE_MODE;
+  return DIMENSION_MODES.IS_MOBILE_MODE;
 };
 
 export const isLandscapeMode = (currentViewMode) => {

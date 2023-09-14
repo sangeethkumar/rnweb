@@ -3,7 +3,7 @@ import ResponsiveStyle from "./ResponsiveStyle";
 import { DIMENSION_MODES } from "./ResponsiveConstants";
 
 export const MyResponsiveContext = React.createContext(
-  DIMENSION_MODES.IS_LANDSCAPE_MODE
+  DIMENSION_MODES.IS_MOBILE_MODE
 );
 
 export default function useResponsiveStyle(style) {
