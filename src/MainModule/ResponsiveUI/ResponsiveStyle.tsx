@@ -1,71 +1,23 @@
-import {StyleSheet} from "react-native";
-import {isWeb} from "../utils/AppHelper";
+import { StyleSheet } from "react-native";
+import { DIMENSION_MODES } from "./ResponsiveConstants";
 
-const ResponsiveStyle = ({
-                             defaultStyle,
-                             tabletPortraitStyle,
-                             tabletLandscapeStyle,
-                             webStyle,
-                             webLargeScreenStyle,
-                             webTabletLandscapeStyle,
-                             webTabletPortraitStyle,
-                             webSmallScreenStyle,
-                         }, viewMode) => {
-    let styles = {
-        ...defaultStyle,
-    };
+const ResponsiveStyle = (
+  { landScapeStyle, tabletPortraitStyle, mobileStyle },
+  viewMode
+) => {
+  let styles;
+  switch (viewMode) {
+    case DIMENSION_MODES.IS_LANDSCAPE_MODE:
+      styles = { ...mobileStyle, ...landScapeStyle };
+      break;
+    case DIMENSION_MODES.IS_TABLET_PORTRAIT_MODE:
+      styles = { ...mobileStyle, ...tabletPortraitStyle };
+      break;
+    default:
+      styles = mobileStyle;
+  }
 
-    if (isWeb) {
-        styles = {
-            ...styles,
-            ...webStyle,
-        };
-
-        if (viewMode?.isWebMode) {
-            styles = {
-                ...styles,
-                ...webLargeScreenStyle,
-                ...tabletLandscapeStyle,
-                ...webTabletLandscapeStyle,
-            };
-        } else if (viewMode?.isTabletLandscapeMode) {
-            styles = {
-                ...styles,
-                ...tabletLandscapeStyle,
-                ...webTabletLandscapeStyle,
-            };
-        } else if (viewMode?.isTabletPortraitMode) {
-            styles = {
-                ...styles,
-                ...tabletPortraitStyle,
-                ...webTabletPortraitStyle,
-            };
-        } else if (viewMode?.isMobileMode) {
-            styles = {
-                ...styles,
-                ...webSmallScreenStyle,
-            };
-        }
-    } else {
-        if (viewMode?.isWebMode) {
-            styles = {
-                ...styles,
-                ...tabletLandscapeStyle,
-            };
-        } else if (viewMode?.isTabletPortraitMode) {
-            styles = {
-                ...styles,
-                tabletPortraitStyle,
-            };
-        } else if (viewMode?.isTabletLandscapeMode) {
-            styles = {
-                ...styles,
-                tabletLandscapeStyle,
-            };
-        }
-    }
-
-    return StyleSheet.create(styles);
-}
+  return StyleSheet.create(styles);
+};
 
 export default ResponsiveStyle;

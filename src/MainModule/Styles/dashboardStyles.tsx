@@ -1,7 +1,6 @@
-import ResponsiveStyle from "../ResponsiveUI/ResponsiveStyle";
 // @ts-ignore
 export const dashboardStyles = {
-  defaultStyle: {
+  mobileStyle: {
     container: {
       flex: 1,
       padding: 10,
@@ -35,7 +34,7 @@ export const dashboardStyles = {
       fontSize: 16,
     },
   },
-  tabletLandscapeStyle: {
+  landScapeStyle: {
     moduleContainer: {
       flexDirection: "row",
       justifyContent: "space-between",

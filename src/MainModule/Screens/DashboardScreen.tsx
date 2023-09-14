@@ -14,7 +14,7 @@ interface IDashboardScreen {
 
 const DashboardScreen: React.FC = ({ navigation }: IDashboardScreen) => {
   const styles = useResponsiveStyle(dashboardStyles);
-  const mode = useContext(MyResponsiveContext);
+  const currentViewMode = useContext(MyResponsiveContext);
   useEffect(() => {
     return () => {
       FirebaseAnalytics.init();
@@ -39,9 +39,9 @@ const DashboardScreen: React.FC = ({ navigation }: IDashboardScreen) => {
 
   return (
     <ScrollView style={styles.container}>
-      <DashboardHeader showFilter={!isLandscapeMode(mode)} />
+      <DashboardHeader showFilter={!isLandscapeMode(currentViewMode)} />
       <View style={styles.centerContainer}>
-        {isLandscapeMode(mode) && (
+        {isLandscapeMode(currentViewMode) && (
           <View style={styles.filterContainer}>
             <FilterBar />
           </View>
