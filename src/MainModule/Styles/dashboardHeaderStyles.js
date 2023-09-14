@@ -18,6 +18,11 @@ export const dashboardHeaderStyle = StyleSheet.create({
     shadowRadius: 2,
     elevation: 3,
     marginBottom: 16,
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
   },
   header: {
     fontSize: 24,
