@@ -27,7 +27,6 @@ export function useScreenModes() {
   const handleOrientationChange = (data) => {
     if (data?.window) {
       const mode = getDimensionModeOfScreen(data.window);
-      console.log("mode:", mode);
       if (mode) {
         setCurrentViewMode(mode);
       }

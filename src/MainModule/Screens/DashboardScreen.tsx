@@ -2,18 +2,21 @@ import React, {useContext, useEffect} from "react";
 import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import DashboardHeader from "../Views/DashboardHeader";
 import FirebaseAnalytics from "../utils/AnalyicsHelper";
-import useResponsiveStyle, {MyResponsiveContext} from "../ResponsiveUI/ResponsiveUIContext";
+import {MyResponsiveContext} from "../ResponsiveUI/ResponsiveUIContext";
 import FilterBar from "../../FeaturesModule/Views/FilterBar";
 import {isLandscapeMode} from "../ResponsiveUI/ResponsiveHelpers";
 import {dashboardStyles} from "../Styles/dashboardStyles";
+import ResponsiveStyle from "../ResponsiveUI/ResponsiveStyle";
 
 interface IDashboardScreen {
     navigation: any;
 }
 
 const DashboardScreen: React.FC = ({navigation}: IDashboardScreen) => {
-    const styles = useResponsiveStyle(dashboardStyles);
+
     const currentViewMode = useContext(MyResponsiveContext);
+    const styles = ResponsiveStyle(dashboardStyles, currentViewMode);
+
     useEffect(() => {
         return () => {
             FirebaseAnalytics.init();
