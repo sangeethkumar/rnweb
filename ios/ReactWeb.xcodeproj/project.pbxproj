@@ -12,6 +12,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		3889243A2AB9A09F0086333C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 388924392AB9A09F0086333C /* GoogleService-Info.plist */; };
 		3899BDB52AAF393A00B93346 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3899BDB42AAF393A00B93346 /* GoogleService-Info.plist */; };
 		38FC74822AA9FFA500218986 /* DancingScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38FC747E2AA9FFA500218986 /* DancingScript-Regular.ttf */; };
 		38FC74832AA9FFA500218986 /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38FC747F2AA9FFA500218986 /* DancingScript-Bold.ttf */; };
@@ -42,6 +43,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactWeb/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactWeb/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-ReactWeb-ReactWebTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactWeb-ReactWebTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		388924392AB9A09F0086333C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3899BDB22AAF305B00B93346 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3899BDB42AAF393A00B93346 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		38FC747B2AA9FC6100218986 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				3899BDB42AAF393A00B93346 /* GoogleService-Info.plist */,
+				388924392AB9A09F0086333C /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38FC74822AA9FFA500218986 /* DancingScript-Regular.ttf in Resources */,
+				3889243A2AB9A09F0086333C /* GoogleService-Info.plist in Resources */,
 				38FC74832AA9FFA500218986 /* DancingScript-Bold.ttf in Resources */,
 				38FC74842AA9FFA500218986 /* DancingScript-SemiBold.ttf in Resources */,
 				38FC74852AA9FFA500218986 /* DancingScript-Medium.ttf in Resources */,
