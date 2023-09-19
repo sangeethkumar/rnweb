@@ -12,6 +12,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		38B56E852AB9B48500979127 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38B56E842AB9B48500979127 /* GoogleService-Info.plist */; };
 		38FC74822AA9FFA500218986 /* DancingScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38FC747E2AA9FFA500218986 /* DancingScript-Regular.ttf */; };
 		38FC74832AA9FFA500218986 /* DancingScript-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38FC747F2AA9FFA500218986 /* DancingScript-Bold.ttf */; };
 		38FC74842AA9FFA500218986 /* DancingScript-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38FC74802AA9FFA500218986 /* DancingScript-SemiBold.ttf */; };
@@ -42,6 +43,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactWeb/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-ReactWeb-ReactWebTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactWeb-ReactWebTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3899BDB22AAF305B00B93346 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		38B56E842AB9B48500979127 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		38FC747B2AA9FC6100218986 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		38FC747D2AA9FF9600218986 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		38FC747E2AA9FFA500218986 /* DancingScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DancingScript-Regular.ttf"; path = "Resources/DancingScript-Regular.ttf"; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				3899BDB22AAF305B00B93346 /* GoogleService-Info.plist */,
+				38B56E842AB9B48500979127 /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -267,6 +270,7 @@
 				38FC74852AA9FFA500218986 /* DancingScript-Medium.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				38B56E852AB9B48500979127 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
