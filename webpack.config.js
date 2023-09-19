@@ -54,11 +54,16 @@ const imageLoaderConfiguration = {
 };
 
 const tsLoaderConfiguration = {
-  test: /\.(ts|tsx)$/,
-  include: [
-    path.resolve(__dirname, "src"), // Adjust this to your source code directory
-  ],
-  use: "ts-loader",
+  test: /\.(ts)x?$/,
+  exclude: /node_modules|\.d\.ts$/, // this line as well
+  use: {
+    loader: 'ts-loader',
+    options: {
+      compilerOptions: {
+        noEmit: false, // this option will solve the issue
+      },
+    },
+  },
 };
 
 const webViewConfig = {
