@@ -4,7 +4,7 @@ export const dashboardStyles = {
     container: {
       flex: 1,
       backgroundColor: "#fff",
-      marginTop: 30,
+      // marginTop: 30,
     },
     centerContainer: {
       flex: 1,
