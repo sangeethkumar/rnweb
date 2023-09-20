@@ -30,7 +30,7 @@ const onNavigationStateChange = (newState) => {
         const prevRoute = routes[routes?.length - 2];
         console.log('prevRoute ', prevRoute);
         // replace modal
-        if (currentRoute.name.includes('yyy')) {
+        if (currentRoute.name.includes('Modal')) {
             console.log('currentRoute modal ', currentRoute.name);
             routes = routes.slice();
             console.log('routes after ', routes);
