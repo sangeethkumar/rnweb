@@ -123,13 +123,6 @@ module.exports = {
       __DEV__: JSON.stringify(true),
     }),
     new CompressionPlugin({
-      filename: "rnw.bundle.js.gz",
-      algorithm: "gzip",
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8,
-    }),
-    new CompressionPlugin({
       filename: "rnw.bundle.js.br",
       algorithm: "brotliCompress",
       test: /\.(js|css|html|svg)$/,
