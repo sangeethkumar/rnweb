@@ -111,6 +111,11 @@ module.exports = {
       ttfLoaderConfiguration
     ],
   },
+  devServer: {
+    historyApiFallback: {
+      disableDotRule: true
+    }
+  },
   plugins: [
     ReactWebConfig(envFilePath),
     new HtmlWebpackPlugin({
