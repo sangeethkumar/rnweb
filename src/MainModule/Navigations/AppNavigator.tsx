@@ -5,6 +5,7 @@ import DashboardScreen from "../Screens/DashboardScreen";
 import FeaturesScreen from "../../FeaturesModule/Screens/FeaturesScreen";
 import PromotionScreen from "../../PromotionModule/Screens/PromotionScreen";
 import SettingsScreen from "../../SettingsModule/Screens/SettingsScreen";
+import SearchScreen from "../../OrdersModule/Screens/SearchScreen";
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ const AppNavigator: React.FC = () => {
             <Stack.Screen name="Features" component={FeaturesScreen}/>
             <Stack.Screen name="Promotion" component={PromotionScreen}/>
             <Stack.Screen name="Settings" component={SettingsScreen}/>
+            <Stack.Screen name='Search_Screen_Modal' component={SearchScreen}/>
         </Stack.Navigator>
     );
 };

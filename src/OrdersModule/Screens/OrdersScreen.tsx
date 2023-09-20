@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import CommonHeader from "../../MainModule/Views/CommonHeader";
 import FirebaseAnalytics from "../../MainModule/utils/AnalyicsHelper";
 
@@ -21,9 +21,9 @@ const OrderScreen: React.FC = ({navigation}: IOrderScreen) => {
     return (
         <View style={styles.container}>
             <CommonHeader title="Orders" navigation={navigation}/>
-            <View style={styles.content}>
+            <TouchableOpacity onPress={() => navigation.navigate('Search_Screen_Modal')} style={styles.content}>
                 <Text style={styles.textStyle}>Orders Content</Text>
-            </View>
+            </TouchableOpacity>
         </View>
     );
 };
