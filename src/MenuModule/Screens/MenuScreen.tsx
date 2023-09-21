@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import CommonHeader from "../../MainModule/Views/CommonHeader";
+import ReactApp from '../../../ReactFile' // we cannot directly import microfrontend on typescript so use separate js file for it.
 
 interface IMenuScreen {
     navigation: any;
@@ -12,6 +13,7 @@ const MenuScreen: React.FC = ({navigation}: IMenuScreen) => {
             <CommonHeader title="Menu" navigation={navigation}/>
             <View style={styles.content}>
                 <Text style={styles.textStyle}>Menu</Text>
+                <ReactApp/>
             </View>
         </View>
     );

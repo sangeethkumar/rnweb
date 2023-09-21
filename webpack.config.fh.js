@@ -5,13 +5,16 @@ const appDirectory = path.resolve(__dirname);
 const { presets, plugins } = require(`${appDirectory}/babel.config.js`);
 const compileNodeModules = [
   // Add every react-native package that needs compiling
-  'react-native-web-webview',
-  'react-native-webview',
+  "react-native-web-webview",
+  "react-native-webview",
 ].map((moduleName) => path.resolve(appDirectory, `node_modules/${moduleName}`));
-const ReactWebConfig = require('react-web-config/lib/ReactWebConfig').ReactWebConfig;
-const envFilePath = path.resolve(__dirname, '.env.FH');
+const ReactWebConfig =
+  require("react-web-config/lib/ReactWebConfig").ReactWebConfig;
+const envFilePath = path.resolve(__dirname, ".env.FH");
 const CompressionPlugin = require("compression-webpack-plugin");
 const zlib = require("zlib");
+const { dependencies } = require("./package.json");
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 const babelLoaderConfiguration = {
   test: /\.(js|jsx|ts|tsx)$/, // Updated to include .jsx
@@ -45,19 +48,19 @@ const svgLoaderConfiguration = {
 const imageLoaderConfiguration = {
   test: /\.(gif|jpe?g|png)$/,
   use: {
-    loader: 'url-loader',
+    loader: "url-loader",
     options: {
-      name: '[name].[ext]',
-      esModule: false
-    }
-  }
+      name: "[name].[ext]",
+      esModule: false,
+    },
+  },
 };
 
 const tsLoaderConfiguration = {
   test: /\.(ts)x?$/,
   exclude: /node_modules|\.d\.ts$/, // this line as well
   use: {
-    loader: 'ts-loader',
+    loader: "ts-loader",
     options: {
       compilerOptions: {
         noEmit: false, // this option will solve the issue
@@ -69,19 +72,19 @@ const tsLoaderConfiguration = {
 const webViewConfig = {
   test: /postMock.html$/,
   use: {
-    loader: 'file-loader',
+    loader: "file-loader",
     options: {
-      name: '[name].[ext]'
-    }
-  }
+      name: "[name].[ext]",
+    },
+  },
 };
 const ttfLoaderConfiguration = {
   test: /\.ttf$/,
   use: [
     {
-      loader: 'url-loader'
-    }
-  ]
+      loader: "url-loader",
+    },
+  ],
 };
 
 module.exports = {
@@ -97,8 +100,8 @@ module.exports = {
     extensions: [".web.tsx", ".web.ts", ".tsx", ".ts", ".web.js", ".js"],
     alias: {
       "react-native$": "react-native-web",
-      'react-native-webview': 'react-native-web-webview',
-      'react-native-config': 'react-web-config'
+      "react-native-webview": "react-native-web-webview",
+      "react-native-config": "react-web-config",
     },
   },
   module: {
@@ -108,31 +111,50 @@ module.exports = {
       svgLoaderConfiguration,
       tsLoaderConfiguration,
       webViewConfig,
-      ttfLoaderConfiguration
+      ttfLoaderConfiguration,
     ],
   },
   plugins: [
     ReactWebConfig(envFilePath),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "index.html"),
-      filename: 'index.html',
-      inject: 'body'
+      filename: "index.html",
+      inject: "body",
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       __DEV__: JSON.stringify(true),
     }),
-    new CompressionPlugin({
-      filename: "rnw.bundle.js.br",
-      algorithm: "brotliCompress",
-      test: /\.(js|css|html|svg)$/,
-      compressionOptions: {
-        params: {
-          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+    new ModuleFederationPlugin({
+      name: "reactnativeapp",
+      remotes: {
+        Reactapp: `reactapp@https://microfrontend-react-f2a58.web.app/moduleEntry.js`,
+      },
+      shared: {
+        ...dependencies,
+        react: {
+          eager: true,
+          singleton: true,
+          requiredVersion: dependencies.react,
+        },
+        "react-dom": {
+          eager: true,
+          singleton: true,
+          requiredVersion: dependencies["react-dom"],
         },
       },
-      threshold: 10240,
-      minRatio: 0.8,
     }),
+    // new CompressionPlugin({
+    //   filename: "rnw.bundle.js.br",
+    //   algorithm: "brotliCompress",
+    //   test: /\.(js|css|html|svg)$/,
+    //   compressionOptions: {
+    //     params: {
+    //       [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+    //     },
+    //   },
+    //   threshold: 10240,
+    //   minRatio: 0.8,
+    // }),
   ],
 };
